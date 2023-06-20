@@ -76,7 +76,7 @@ function update_reply_button_state(disable = false) {
 }
 
 function update_stream_button(btn_text) {
-    $("#left_bar_compose_stream_button_big").text(btn_text);
+    $("#new_topic_button").text(btn_text);
 }
 
 function update_conversation_button(btn_text) {
@@ -96,7 +96,7 @@ export function update_buttons_for_private() {
         !narrow_state.pm_ids_string() ||
         people.user_can_direct_message(narrow_state.pm_ids_string())
     ) {
-        $("#left_bar_compose_stream_button_big").attr(
+        $("#new_topic_button").attr(
             "data-tooltip-template-id",
             "new_stream_message_button_tooltip_template",
         );
@@ -115,7 +115,7 @@ export function update_buttons_for_private() {
 
 export function update_buttons_for_stream() {
     const text_stream = $t({defaultMessage: "New topic"});
-    $("#left_bar_compose_stream_button_big").attr(
+    $("#new_topic_button").attr(
         "data-tooltip-template-id",
         "new_topic_message_button_tooltip_template",
     );
@@ -124,7 +124,7 @@ export function update_buttons_for_stream() {
 
 export function update_buttons_for_recent_topics() {
     const text_stream = $t({defaultMessage: "New stream message"});
-    $("#left_bar_compose_stream_button_big").attr(
+    $("#new_topic_button").attr(
         "data-tooltip-template-id",
         "new_stream_message_button_tooltip_template",
     );
@@ -162,7 +162,7 @@ export function initialize() {
     });
 
     // Click handlers for buttons in the compose box.
-    $("body").on("click", ".compose_stream_button", () => {
+    $("body").on("click", ".compose_new_topic_button", () => {
         compose_actions.start("stream", {trigger: "new topic button"});
     });
 
